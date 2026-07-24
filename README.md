@@ -85,7 +85,7 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
 
 ```
 <p align="center">
-*FIRST STAGE*
+FIRST STAGE
 </p> 
 
 <p align="center">
