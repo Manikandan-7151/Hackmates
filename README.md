@@ -95,3 +95,7 @@ FIRST STAGE
 <p align="center">
 <img width="500" alt="image" src="https://github.com/user-attachments/assets/4ea5e36d-d01c-4b86-b167-c216d98c81f2" />
 </p>
+
+
+ZEROTH REVIEW
+Feature: Multi-Barrier Air Purification – Removes dust, smoke, acidic gases, VOCs, and odors through a five-stage filtration system.
