@@ -110,5 +110,10 @@ SECOND STAGE
 
 <img width="500"  alt="ELECTRO STATIC PRECIPITATOR" src="https://github.com/user-attachments/assets/927d21a4-a841-40cd-9448-d44a2d689e35" />
 
+<p align="center">
+THIRD STAGE
+</p> 
+<img width="500"  alt="image" src="https://github.com/user-attachments/assets/cc2b5a5f-108d-4763-94f0-95004bad71c5" />
+
 
 
