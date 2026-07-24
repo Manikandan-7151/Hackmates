@@ -101,3 +101,14 @@ ZEROTH REVIEW
 Feature: Multi-Barrier Air Purification – Removes dust, smoke, acidic gases, VOCs, and odors through a five-stage filtration system.
 
 Author name: B Manikandan (github: Manikandan-7151)
+
+<p align="center">
+SECOND STAGE
+</p> 
+
+<img width="500"  alt="ESP" src="https://github.com/user-attachments/assets/b665ed80-76f8-456c-9d0d-64156606b1ad" />
+
+<img width="500"  alt="ELECTRO STATIC PRECIPITATOR" src="https://github.com/user-attachments/assets/927d21a4-a841-40cd-9448-d44a2d689e35" />
+
+
+
