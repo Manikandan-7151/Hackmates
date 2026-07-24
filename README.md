@@ -1,4 +1,3 @@
-
 # 🌿 Toxic Air Cleaner (Advanced Multi-Barrier Purification System)
 
 > **Hackathon Project Documentation**
@@ -50,6 +49,8 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
 ---
 
 ## 🏗 System Architecture Diagram
+
+> **Visual Workflow:**
 
 ```text
 [ Combustion Chamber / Biomass Burner ]
