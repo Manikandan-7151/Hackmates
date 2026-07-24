@@ -85,5 +85,13 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
 
 ```
 <p align="center">
+*FIRST STAGE*
+</p> 
+
+<p align="center">
   <img src="https://raw.githubusercontent.com/Manikandan-7151/Hackmates/118c566916aea1207240704083150cd3f23a6c39/WhatsApp%20Image%202026-07-24%20at%203.42.48%20PM.jpeg" width="500" alt="Project Image">
+</p>
+
+<p align="center">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/4ea5e36d-d01c-4b86-b167-c216d98c81f2" />
 </p>
