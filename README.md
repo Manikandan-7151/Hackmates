@@ -85,7 +85,7 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
 
 ```
 <p align="center">
-FIRST STAGE
+FIRST STAGE(Cyclone Collector)
 </p> 
 
 <p align="center">
@@ -103,7 +103,7 @@ Feature: Multi-Barrier Air Purification – Removes dust, smoke, acidic gases, V
 Author name: B Manikandan (github: Manikandan-7151)
 
 <p align="center">
-SECOND STAGE
+SECOND STAGE(ELECTRO STATIC PRECIPITATOR)
 </p> 
 
 <img width="500"  alt="ESP" src="https://github.com/user-attachments/assets/b665ed80-76f8-456c-9d0d-64156606b1ad" />
@@ -111,7 +111,7 @@ SECOND STAGE
 <img width="500"  alt="ELECTRO STATIC PRECIPITATOR" src="https://github.com/user-attachments/assets/927d21a4-a841-40cd-9448-d44a2d689e35" />
 
 <p align="center">
-THIRD STAGE
+THIRD STAGE(Ultrasonic Mist Maker)
 </p> 
 <img width="500"  alt="image" src="https://github.com/user-attachments/assets/cc2b5a5f-108d-4763-94f0-95004bad71c5" />
 
