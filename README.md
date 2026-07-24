@@ -83,3 +83,4 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
                  ▼
       [ 🍃 Purified Clean Air ]
 
+.<img width="1200" height="1600" alt="propeller" src="https://github.com/user-attachments/assets/a21f3d31-5af0-4b3c-9cf2-5087cbad7e0a" />
