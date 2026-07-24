@@ -84,7 +84,7 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
       [ 🍃 Purified Clean Air ]
 
 ```
-<p>  ⚙️ Working Mechanism
+<p>  <h1> ⚙️ Working Mechanism </h1> 
 
 The system purifies industrial exhaust through a sequential 4-stage process, with each stage targeting a specific class of pollutants:
 
