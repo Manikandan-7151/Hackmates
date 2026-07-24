@@ -77,7 +77,7 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
                  │
                  ▼
      ┌───────────────────────┐
-     │ 5. Activated Carbon   │ ──► Adsorbs Residual VOCs & Odors
+     │ 5. Activated Carbon   │ ──► Absorbs Residual VOCs & Odors
      └───────────┬───────────┘
                  │
                  ▼
