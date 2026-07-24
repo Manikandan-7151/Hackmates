@@ -97,11 +97,6 @@ FIRST STAGE(Cyclone Collector)
 </p>
 
 
-ZEROTH REVIEW
-Feature: Multi-Barrier Air Purification – Removes dust, smoke, acidic gases, VOCs, and odors through a five-stage filtration system.
-
-Author name: B Manikandan (github: Manikandan-7151)
-
 <p align="center">
 SECOND STAGE(ELECTRO STATIC PRECIPITATOR)
 </p> 
