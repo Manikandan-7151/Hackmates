@@ -83,5 +83,5 @@ Our project proposes a **Toxic Gas Cleaner** to reduce harmful emissions from pl
                  ▼
       [ 🍃 Purified Clean Air ]
 
-
+```
 ![image alt](https://github.com/Manikandan-7151/Hackmates/blob/118c566916aea1207240704083150cd3f23a6c39/WhatsApp%20Image%202026-07-24%20at%203.42.48%20PM.jpeg)
