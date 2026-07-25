@@ -130,4 +130,5 @@ THIRD STAGE(Ultrasonic Mist Maker)
 <img width="500"  alt="image" src="https://github.com/user-attachments/assets/cc2b5a5f-108d-4763-94f0-95004bad71c5" />
 
 
+<img width="1600" height="898" alt="WhatsApp Image 2026-07-25 at 9 24 11 AM" src="https://github.com/user-attachments/assets/e05db2cd-6784-43ab-b795-b3b61d1e59bc" />
 
