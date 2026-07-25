@@ -1,0 +1,149 @@
+#include <WiFi.h>
+#include <WebServer.h>
+ 
+// Sensor Pins (ADC1 pins are required when using WiFi)
+const int intakePin = 34;
+const int exhaustPin = 35;
+
+// Web Server on standard HTTP port 80
+WebServer server(80);
+
+// =======================================================
+// THE DASHBOARD HTML (Pure Offline HTML/CSS/JS)
+// =======================================================
+const char index_html[] PROGMEM = R"rawliteral(
+<!DOCTYPE HTML><html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hydro-Shift Dashboard</title>
+  <style>
+    body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #121212; color: #ffffff; text-align: center; margin: 0; padding: 20px; }
+    h1 { color: #00d2ff; font-size: 3.5rem; margin-bottom: 5px; letter-spacing: 2px; }
+    h2 { color: #888; font-size: 1.2rem; margin-top: 0; margin-bottom: 40px; }
+    .container { display: flex; justify-content: space-around; flex-wrap: wrap; }
+    .card { background-color: #1e1e1e; padding: 30px; border-radius: 15px; width: 40%; box-shadow: 0 8px 16px rgba(0,0,0,0.5); }
+    .card h3 { margin-top: 0; color: #ccc; }
+    .value { font-size: 6rem; font-weight: bold; margin: 20px 0; font-family: monospace; }
+    .status { font-size: 1.5rem; font-weight: bold; padding: 15px; border-radius: 8px; letter-spacing: 1px; }
+    
+    /* Dynamic Colors */
+    .toxic-text { color: #ff4757; }
+    .clean-text { color: #2ed573; }
+    .toxic-bg { background-color: #ff4757; color: white; }
+    .clean-bg { background-color: #2ed573; color: #121212; }
+    
+    .efficiency { margin-top: 50px; font-size: 2.5rem; color: #feca57; background: #1e1e1e; display: inline-block; padding: 20px 40px; border-radius: 15px; border: 2px solid #feca57; }
+  </style>
+</head>
+<body>
+  <h1>HYDRO-SHIFT</h1>
+  <h2>LIVE FILTRATION TELEMETRY</h2>
+  
+  <div class="container">
+    <div class="card">
+      <h3>INTAKE GAS (Dirty Air)</h3>
+      <div class="value toxic-text" id="in-val">0</div>
+      <div class="status toxic-bg" id="in-status">ANALYZING...</div>
+    </div>
+    
+    <div class="card">
+      <h3>EXHAUST GAS (Clean Air)</h3>
+      <div class="value clean-text" id="ex-val">0</div>
+      <div class="status clean-bg" id="ex-status">ANALYZING...</div>
+    </div>
+  </div>
+
+  <div class="efficiency">System Efficiency: <span id="eff-val">0</span>%</div>
+
+  <script>
+    // Fetch new data from ESP32 every 500ms (Half a second)
+    setInterval(function() {
+      fetch('/data')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('in-val').innerText = data.intake;
+          document.getElementById('ex-val').innerText = data.exhaust;
+          
+          // Logic: If value is over 1200, it is Toxic.
+          const threshold = 1200;
+          
+          // Update Intake Status
+          if(data.intake > threshold) {
+             document.getElementById('in-status').innerText = "TOXIC ALERT";
+             document.getElementById('in-status').className = "status toxic-bg";
+          } else {
+             document.getElementById('in-status').innerText = "SAFE BASELINE";
+             document.getElementById('in-status').className = "status clean-bg";
+          }
+          
+          // Update Exhaust Status
+          if(data.exhaust > threshold) {
+             document.getElementById('ex-status').innerText = "FILTRATION FAILURE";
+             document.getElementById('ex-status').className = "status toxic-bg";
+          } else {
+             document.getElementById('ex-status').innerText = "100% CLEAN AIR";
+             document.getElementById('ex-status').className = "status clean-bg";
+          }
+
+          // Calculate Efficiency Percentage
+          let eff = ((data.intake - data.exhaust) / data.intake) * 100;
+          if (eff < 0) eff = 0; 
+          if (data.intake < threshold) eff = 100; // Ignore math if air is already clean
+          document.getElementById('eff-val').innerText = eff.toFixed(1);
+        });
+    }, 500); 
+  </script>
+</body>
+</html>
+)rawliteral";
+
+// =======================================================
+// SERVER ROUTING (Sending the Data)
+// =======================================================
+
+void handleRoot() {
+  server.send(200, "text/html", index_html);
+}
+
+void handleData() {
+  int intakeVal = analogRead(intakePin);
+  int exhaustVal = analogRead(exhaustPin);
+  
+  // Package the sensor readings into a JSON string
+  String json = "{\"intake\": " + String(intakeVal) + ", \"exhaust\": " + String(exhaustVal) + "}";
+  server.send(200, "application/json", json);
+}
+
+// =======================================================
+// MAIN SETUP
+// =======================================================
+void setup() {
+  Serial.begin(115200);
+  
+  // Set ESP32 Analog Resolution to 12-bit (0-4095)
+  analogReadResolution(12);
+  
+  // Give the MQ-135 sensors a moment to warm up
+  delay(1000); 
+
+  // 1. Set ESP32 as a WiFi Hotspot
+  Serial.println("Starting Hydro-Shift Network...");
+  WiFi.softAP("Hydro-Shift", "12345678"); 
+  
+  // 2. Print the IP Address (Usually 192.168.4.1)
+  IPAddress IP = WiFi.softAPIP();
+  Serial.print("Dashboard IP Address: ");
+  Serial.println(IP);
+
+  // 3. Start the server
+  server.on("/", HTTP_GET, handleRoot);
+  server.on("/data", HTTP_GET, handleData);
+  server.begin();
+  
+  Serial.println("Server is live.");
+}
+
+void loop() {
+  // Keep the server listening for requests from your laptop
+  server.handleClient(); 
+}
